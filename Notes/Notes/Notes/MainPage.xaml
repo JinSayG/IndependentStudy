@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels1="clr-namespace:Notes"
+             Title="首頁"
+             x:Class="Notes.MainPage">
+    <ContentPage.BindingContext>
+        <viewModels1:Test/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="End">
+            <ListView ItemsSource="{Binding Data}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Success,StringFormat='Success: {0 :F0}'}"/>
+                                <Label Text="{Binding Fail,StringFormat='Fail: {0 :F0}'}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="盤點倉庫" Clicked="gotoinventory"></Button>
+            <Button Text="主管過帳" Clicked="gotoposting"></Button>
+            <Button Text="收貨" Clicked="gotoimport"></Button>
+            <Button Text="發貨" Clicked="gotoexport"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
